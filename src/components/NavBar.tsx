@@ -12,22 +12,24 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PhishingIcon from '@mui/icons-material/Phishing';
+import { useHistory } from 'react-router-dom';
 
 const pages = [
-    'Kontakt', 
-    'Wymówki', 
-    'Kalkulator prowiantu', 
-    "Król wód", 
-    "Galeria", 
-    "Śmieszne", 
-    "Mapa", 
-    "Szczupak", 
-    "Statystyki", 
-    "Informacje"
+  'Kontakt',
+  'Wymówki',
+  'Kalkulator prowiantu',
+  "Król wód",
+  "Galeria",
+  "Śmieszne",
+  "Mapa",
+  "Szczupak",
+  "Statystyki",
+  "Informacje"
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
+  const history = useHistory();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -42,7 +44,19 @@ function NavBar() {
     setAnchorElNav(null);
   };
 
-  const handleClickNavItem = () => {
+  const handleClickNavItem = (page: any) => {
+    console.log(page);
+    switch (page) {
+      case "Informacje":
+        history.push('/info');
+        break;
+      case "Kalkulator prowiantu":
+        history.push('/calculator');
+        break;
+      default:
+        history.push('/');
+        break;
+    }
     handleCloseNavMenu();
   };
 
@@ -59,7 +73,7 @@ function NavBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -97,13 +111,13 @@ function NavBar() {
                 horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleClickNavItem}
+              onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleClickNavItem}>
+                <MenuItem key={page} onClick={() => handleClickNavItem(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -114,7 +128,7 @@ function NavBar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -132,7 +146,7 @@ function NavBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleClickNavItem}
+                onClick={() => handleClickNavItem(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
