@@ -47,11 +47,35 @@ function NavBar() {
   const handleClickNavItem = (page: any) => {
     console.log(page);
     switch (page) {
-      case "Informacje":
-        history.push('/info');
+      case "Kontakt":
+        history.push('/contact');
+        break;
+      case "Wymówki":
+        history.push('/excuses');
         break;
       case "Kalkulator prowiantu":
         history.push('/calculator');
+        break;
+      case "Król wód":
+        history.push('/waterking');
+        break;
+      case "Galeria":
+        history.push('/gallery');
+        break;
+      case "Śmieszne":
+        history.push('/funny');
+        break;
+      case "Mapa":
+        history.push('/map');
+        break;
+      case "Szczupak":
+        history.push('/canvas');
+        break;
+      case "Statystyki":
+        history.push('/statistics');
+        break;
+      case "Informacje":
+        history.push('/info');
         break;
       default:
         history.push('/');
