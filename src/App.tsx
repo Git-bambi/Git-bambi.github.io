@@ -1,19 +1,20 @@
-import { useState } from 'react'
 import './App.css'
+import MainPage from './components/MainPage';
 import NavBar from './components/NavBar'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <MainPage />,
+    },
+  ]);
 
   return (
     <>
       <NavBar></NavBar>
-      <h1>Ryby.pl</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <RouterProvider router={router} />
     </>
   )
 }
