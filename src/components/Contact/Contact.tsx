@@ -1,9 +1,15 @@
+import FormControl from "@mui/material/FormControl";
+import StyledInput from "./StyledInput";
+import { Input } from "@/components/ui/input"
+
 const Contact = () => {
   return (
     <div>
-      <h1>
-        Kontakt
-      </h1>
+      <FormControl>
+        <StyledInput />
+        <Input />        
+        <button>Wyślij</button>
+      </FormControl>
     </div>
   )
 }
