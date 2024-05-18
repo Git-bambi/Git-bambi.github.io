@@ -5,7 +5,7 @@ import Contact from './components/Contact/Contact';
 import Excuses from './components/Excuses/Excuses';
 import MainPage from './components/MainPage';
 import NavBar from './components/NavBar'
-import { Switch, Link, Route, BrowserRouter as Router, useHistory } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import WaterKing from './components/WaterKing/WaterKing';
 import Gallery from './components/Gallery/Gallery';
 import Funny from './components/Funny/Funny';
