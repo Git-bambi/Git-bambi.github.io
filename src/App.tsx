@@ -1,33 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import About from './components/About/About';
+import Calculator from './components/Calculator/Calculator';
+import Contact from './components/Contact/Contact';
+import Excuses from './components/Excuses/Excuses';
+import MainPage from './components/MainPage';
+import NavBar from './components/NavBar'
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import WaterKing from './components/WaterKing/WaterKing';
+import Gallery from './components/Gallery/Gallery';
+import Funny from './components/Funny/Funny';
+import Map from './components/Map/Map';
+import Canvas from './components/Canvas/Canvas';
+import Statistics from './components/Statistics/Statistics';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+        <div>
+          <NavBar></NavBar>
+          <Switch>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/excuses">
+              <Excuses />
+            </Route>
+            <Route path="/calculator">
+              <Calculator />
+            </Route>
+            <Route path="/waterking">
+              <WaterKing />
+            </Route>
+            <Route path="/gallery">
+              <Gallery />
+            </Route>
+            <Route path="/funny">
+              <Funny />
+            </Route>
+            <Route path="/map">
+              <Map />
+            </Route>
+            <Route path="/canvas">
+              <Canvas />
+            </Route>
+            <Route path="/statistics">
+              <Statistics />
+            </Route>
+            <Route path="/info">
+              <About />
+            </Route>
+            <Route path="/">
+              <MainPage />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </>
   )
 }
