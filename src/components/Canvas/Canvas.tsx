@@ -12,6 +12,10 @@ const Canvas = () => {
     let szczupakX = 0;
     let szczupakY = 300;
     let szczupakSpeed = 2;
+    let szczupakWidth = 400;
+    let szczupakHeight = 100;
+
+    let wodorostyOffset = 0;
 
     const drawBackground = () => {
       ctx.fillStyle = '#87CEEB'; // Kolor nieba
@@ -19,6 +23,19 @@ const Canvas = () => {
 
       ctx.fillStyle = '#1E90FF'; // Kolor wody
       ctx.fillRect(0, 400, canvas.width, 200);
+    };
+
+    const drawWodorosty = () => {
+      ctx.fillStyle = 'green';
+      for (let i = 0; i < canvas.width; i += 50) {
+        ctx.beginPath();
+        ctx.moveTo(i, 600);
+        for (let j = 0; j < 100; j += 20) {
+          ctx.lineTo(i + 10 * Math.sin((j + wodorostyOffset) / 10), 600 - j - 20);
+        }
+        ctx.lineTo(i, 600);
+        ctx.fill();
+      }
     };
 
     const drawSzczupak = () => {
@@ -79,15 +96,38 @@ const Canvas = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       drawBackground();
+      drawWodorosty();
       drawSzczupak();
       szczupakX += szczupakSpeed;
       if (szczupakX > canvas.width) {
         szczupakX = -400;
       }
+      wodorostyOffset += 1;
       requestAnimationFrame(animate);
     };
 
+    const handleClick = (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+
+      if (
+        mouseX >= szczupakX &&
+        mouseX <= szczupakX + szczupakWidth &&
+        mouseY >= szczupakY - szczupakHeight / 2 &&
+        mouseY <= szczupakY + szczupakHeight / 2
+      ) {
+        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+      }
+    };
+
+    canvas.addEventListener('click', handleClick);
+
     animate();
+
+    return () => {
+      canvas.removeEventListener('click', handleClick);
+    };
   }, []);
 
   return <canvas ref={canvasRef} />;
