@@ -4,7 +4,6 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { CheckboxWithLabel } from "./CheckboxWithLabel";
 import { Button } from "../ui/button";
-import { ComboboxDemo } from "./Select";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
@@ -13,7 +12,7 @@ const Contact = () => {
 
   const [selectValue, setSelectValue] = useState();
 
-  const handleChangeSelectValue = (event) => {
+  const handleChangeSelectValue = (event: any) => {
     setSelectValue(event.target.value)
   }
 
