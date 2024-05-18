@@ -31,6 +31,7 @@ const Calculator = () => {
   const handleSliderChange = (value: number[]) => {
     setDivorceRisk(value[0]);
   }
+  
   const handleChangeCheckbox = (value: boolean) => {
     setIsWifeWaiting(value);
   }
