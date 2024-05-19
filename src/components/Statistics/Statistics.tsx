@@ -1,9 +1,18 @@
-const Statistics = () => {
+import Clock from './Clock';
+import TimeCounter from './TimeCounter';
+interface StatisticsProps {
+  seconds: number;
+  visits: number;
+}
+
+const Statistics = ({ seconds, visits }: StatisticsProps) => {
   return (
     <div>
-      <h1>
-        Statystyki
-      </h1>
+      <TimeCounter seconds={seconds} />
+      <Clock />
+      <div>
+        Ilość wizyt na stronie: {visits}
+      </div>
     </div>
   )
 }
