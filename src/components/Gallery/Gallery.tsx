@@ -67,9 +67,24 @@ const Gallery = () => {
 
   return (
     <div style={{
-      height: "92.8vh",
+      height: "90vh",
     }}>
-      {pictureNumber}
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+      }}>
+        <button className="arrow-button left" onClick={() => selectPrevImage()}>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z" />
+          </svg>
+        </button>
+        {pictureNumber}
+        <button className="arrow-button right" onClick={() => selectNextImage()}>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+          </svg>
+        </button>
+      </div>
       <div style={{
         display: "flex",
         justifyContent: "center",
