@@ -30,7 +30,7 @@ const Contact = () => {
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [[phoneNumber], setPhoneNumber] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [isFishingCard, setIsFishingCard] = useState<boolean>(false);
   const [fishinCardDate, setFishingCardDate] = useState<string>("");
 
@@ -84,7 +84,8 @@ const Contact = () => {
     ` : `
       Z racji braku posiadania karty wędkarskiej przesłaliśmy Pańskie dane 
       do Polskiego Związku Wędkarskiego, który to skontakuje się w sprawie wystawienia mandatu za nielegalny połów ryby ${favouriteFish}.
-      W celu szybszego wyjaśnienia sprawy prosimy o bezpośredni kontakt: https://pzw.pl/zarzad-glowny/kontakt
+      W celu szybszego wyjaśnienia sprawy prosimy o bezpośredni kontakt: https://pzw.pl/zarzad-glowny/kontakt.
+      Zadzwoń ze swojego numeru ${phoneNumber}
 
       Nie pozdrawiamy
       Zespół Ryby.pl
