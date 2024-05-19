@@ -12,8 +12,23 @@ import Funny from './components/Funny/Funny';
 import Map from './components/Map/Map';
 import Canvas from './components/Canvas/Canvas';
 import Statistics from './components/Statistics/Statistics';
+import { useEffect, useState } from 'react';
+import useLocalStorage from './useLocalStorage';
 
 function App() {
+
+  const [seconds, setSeconds] = useState(0);
+  const [visits, setVisits] = useLocalStorage('visit-counter', 0);
+
+  useEffect(() => {
+    //@ts-ignore
+    setVisits(visits + 1);
+    const intervalId = setInterval(() => {
+      setSeconds(prevSeconds => prevSeconds + 1);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <>
@@ -46,7 +61,11 @@ function App() {
               <Canvas />
             </Route>
             <Route path="/statistics">
-              <Statistics />
+              <Statistics
+                seconds={seconds}
+                //@ts-ignore
+                visits={visits}
+              />
             </Route>
             <Route path="/info">
               <About />
