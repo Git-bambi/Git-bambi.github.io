@@ -1,7 +1,5 @@
 import Typography from "@mui/material/Typography";
-import { wrap } from "module";
-import { title } from "process";
-import { useState } from "react";
+
 
 interface SlideProps {
   slideNumber: number;
