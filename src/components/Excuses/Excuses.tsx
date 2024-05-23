@@ -27,8 +27,16 @@ const Excuses = () => {
           <li>8. Przyroda: "Chciałbym spędzić trochę czasu na łonie natury, aby nacieszyć się pięknem przyrody."</li>
           <li>9. Nowy sprzęt: "Kupiłem nowy sprzęt wędkarski i chciałbym go wypróbować."</li>
           <li>10. Eksperyment: "Mam nową przynętę/technikę, którą chciałbym przetestować."</li>
+
         </ol>
-        <img src="src/assets/rybydzwonia.jpg" alt="Wymowna koszulka - obrazek" />
+        <div>
+        <img style={{
+ display: "flex",
+ flexDirection: "column",
+ alignItems: "flex-start",
+
+        }} src="src/assets/rybydzwonia.jpg" alt="Wymowna koszulka - obrazek" />
+        </div>
       </article>
     </div>
   )

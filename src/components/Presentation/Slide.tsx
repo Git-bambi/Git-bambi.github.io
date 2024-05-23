@@ -1,5 +1,6 @@
 import Typography from "@mui/material/Typography";
 
+
 interface SlideProps {
   slideNumber: number;
 }
@@ -10,27 +11,36 @@ interface ContentType {
   pictureSrc?: string;
 }
 
+
+
+
+
+
 const contents: ContentType[] = [
   {
     title: "Witamy na stronie ryby.pl",
-    text: "DUPA",
-    pictureSrc: "src/assets/pikecrown.jpg",
+    text: "Stona ryby.pl to strona z przymrużeniem która zrzesza fanów tego najpiękniejszego sportu",
+    pictureSrc: "src/assets/fishespl.jpg",
   },
   {
-    title: "2",
-    text: "DUPA",
+    title: "Na na naszej stronie znajdziesz takie rzeczy jak ",
+    text: "Zabawny kalkulator prowiantu ",
+    pictureSrc: "src/assets/beerfish.jpg",
   },
   {
-    title: "3",
-    text: "DUPA",
+    title: "Szczupak",
+    text: "Lepiej nie głaskać szczupaka podobno tego nie lubi",
+    pictureSrc: "src/assets/animepike.jpg",
   },
   {
-    title: "4",
-    text: "DUPA",
+    title: "Pod zakładką Król Wód",
+    text: "znajdziesz ranking ryb polskich oczywiście król może być tylko 1",
+    pictureSrc: "src/assets/kingpike.jpg",
   },
   {
-    title: "5",
-    text: "DUPA",
+    title: "Galeria",
+    text: "W galerii znajdziesz zdjęcia z połowów i nie tylko",
+    pictureSrc: "src/assets/fishhappy.jpg",
   },
 ]
 
@@ -78,6 +88,8 @@ const Slide = (props: SlideProps) => {
             letterSpacing: '.3rem',
             color: 'inherit',
             textDecoration: 'none',
+            maxWidth: "90%",
+            textWrap: "wrap",
           }}
         >
           {contents[props.slideNumber - 1].text}
@@ -87,8 +99,8 @@ const Slide = (props: SlideProps) => {
             src={contents[props.slideNumber - 1].pictureSrc}
             alt="Obrazek"
             style={{
-              maxWidth: "15rem",
-              maxHeight: "15rem",
+              maxWidth: "30rem",
+              maxHeight: "50rem",
             }}
           />
         )}
