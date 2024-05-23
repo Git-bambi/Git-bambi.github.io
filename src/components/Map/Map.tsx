@@ -1,5 +1,6 @@
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
+import Card from "./Card";
 
 const descriptions: string[] = [
   `Wybierz jeden z akwenów wodnych`,
@@ -23,22 +24,7 @@ const Map = () => {
         <area style={{ cursor: "pointer" }} target="" alt="Pool 1" title="Pool 1" onClick={() => setSelectedLake(3)} coords="184,95,173,110,151,115,139,127,131,137,113,126,106,106,83,100,67,89,79,67,107,57,139,58,167,68" shape="poly" />
       </map>
       <div style={{padding: "2rem"}}>
-        <Typography
-          variant="h6"
-          noWrap
-          component="title"
-          sx={{
-            mr: 2,
-            display: { xs: 'none', md: 'flex' },
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-          }}
-        >
-          {descriptions[selectedLake]}
-        </Typography>
+        <Card text1={descriptions[selectedLake]}></Card>
       </div>
     </div>
   );
