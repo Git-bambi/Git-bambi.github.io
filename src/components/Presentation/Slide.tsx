@@ -90,6 +90,8 @@ const Slide = (props: SlideProps) => {
             letterSpacing: '.3rem',
             color: 'inherit',
             textDecoration: 'none',
+            maxWidth: "90%",
+            textWrap: "wrap",
           }}
         >
           {contents[props.slideNumber - 1].text}
@@ -99,8 +101,8 @@ const Slide = (props: SlideProps) => {
             src={contents[props.slideNumber - 1].pictureSrc}
             alt="Obrazek"
             style={{
-              maxWidth: "15rem",
-              maxHeight: "15rem",
+              maxWidth: "30rem",
+              maxHeight: "50rem",
             }}
           />
         )}
