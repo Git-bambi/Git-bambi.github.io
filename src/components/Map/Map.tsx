@@ -1,4 +1,4 @@
-import Typography from "@mui/material/Typography";
+
 import { useState } from "react";
 import Card from "./Card";
 
